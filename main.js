@@ -2,13 +2,6 @@
 //scams
 
 var rawText = "";
-
-//create a 2d array to store frequency of letters appearing in relation to other
- // var countMatrix = new Array(26);
- // for (var i = 0; i < countMatrix.length; i++) {
- //   countMatrix[i] = new Array(26);
- // }
-
 var probOne = 0; //Value after letter combos are multiplied by corresponding frequency of countMatrix
 var probTwo = 0; //Value after letter combos are multiplied by corresponding frequency of countMatrix2
 
@@ -80,8 +73,6 @@ function setRawText() {
     rawText = rawText.toLowerCase();
     //document.getElementById("demo").innerHTML = rawText;
 }
-
-var cleanString = "";
 //remove punctuation and unessecary chars from string
 function makeCleanText() {
     setRawText();
@@ -95,7 +86,6 @@ function makeCleanText() {
 }
 
 //store counts of frequencies in array
-var aString = "";
 //
 
 
@@ -126,6 +116,12 @@ function probability() {
         cumSum[0] = cumSum[0] * countMatrix[charOne][charTwo];
         cumSum[1] = cumSum[1] * countMatrix2[charOne][charTwo];
         console.log('Cycle!');
+        if (k % 3 == 0) {
+            var temp1 = cumSum[0];
+            cumSum[0] = cumSum[0] / (cumSum[0] + cumSum[1]);
+            cumSum[1] = cumSum[1] / (temp1 + cumSum[1]);
+
+        }
     }
     
     probOne = cumSum[0];
