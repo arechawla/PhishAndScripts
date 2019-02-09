@@ -74,6 +74,7 @@ function setRawText() {
     //document.getElementById("demo").innerHTML = rawText;
 }
 //remove punctuation and unessecary chars from string
+var cleanString = "";
 function makeCleanText() {
     setRawText();
     for (var i = 0; i < rawText.length; i++) {
@@ -90,11 +91,11 @@ function makeCleanText() {
 
 
 function makeProbArray() {
-    
+
 
     var totalSum = 0;
     makeCleanText();
-    
+
     probability();
 
 
@@ -123,7 +124,7 @@ function probability() {
 
         }
     }
-    
+
     probOne = cumSum[0];
     probTwo = cumSum[1];
     console.log('probOne is ' + probOne + ' and probTwo is ' + probTwo);
