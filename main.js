@@ -197,14 +197,14 @@ function makeProbArray() {
 
 
 function probability() {
-    var cumSum = [1,1];
+    var cumProb = [1,1];
     for (int k = 0; k < cleanString.length - 1; k++) {
         var charOne = cleanString.charCodeAt(k) - 97;
         var charTwo = cleanString.charCodeAt(k+1) - 97;
-        cumSum[0] = cumSum[0] * countMatrix[charOne][charTwo];
-        cumSum[1] = cumSum[1] * countMatrix2[charOne][charTwo];
+        cumProb[0] = cumProb[0] * countMatrix[charOne][charTwo];
+        cumProb[1] = cumProb[1] * countMatrix2[charOne][charTwo];
     }
-    probOne = cumSum[0];
-    probTwo = cumSum[1];
+    probOne = cumProb[0];
+    probTwo = cumProb[1];
 
 }
