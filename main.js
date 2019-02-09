@@ -102,7 +102,10 @@ function makeProbArray() {
     var normalizedV = [0, 0];
     normalizedV[0] = probOne / (probOne + probTwo);
     normalizedV[1] = probTwo / (probOne + probTwo);
-    document.getElementById('demo').innerHTML = 'Likelihood it is a normal email:' + normalizedV[0] + '<br>Likelihood it is a phishing email:' + normalizedV[1];
+    normalizedV[0] = normalizedV[0].toFixed(4) * 100;
+    normalizedV[1] = normalizedV[1].toFixed(4) * 100;
+    document.getElementById('normal').innerHTML = 'Likelihood it is a normal email: ' + normalizedV[0] + '%';
+    document.getElementById('phish').innerHTML = 'Likelihood it is a phishing email: ' + normalizedV[1] + '%';
 
 
 }
